@@ -60,4 +60,8 @@ return [
     SyliusLabs\Polyfill\Symfony\Security\Bundle\SyliusLabsPolyfillSymfonySecurityBundle::class => ['all' => true],
     League\FlysystemBundle\FlysystemBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
+    Sylius\InvoicingPlugin\SyliusInvoicingPlugin::class => ['all' => true],
+    Knp\Bundle\SnappyBundle\KnpSnappyBundle::class => ['all' => true],
+    Sylius\RefundPlugin\SyliusRefundPlugin::class => ['all' => true],
+    Sylius\Plus\SyliusPlusPlugin::class => ['all' => true],
 ];

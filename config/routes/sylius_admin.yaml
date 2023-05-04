@@ -5,3 +5,14 @@ sylius_admin:
 sylius_paypal_admin:
     resource: "@SyliusPayPalPlugin/Resources/config/admin_routing.yml"
     prefix: '/%sylius_admin.path_name%'
+
+sylius_plus_admin:
+    resource: "@SyliusPlusPlugin/Resources/config/admin_routing.yaml"
+    prefix: /admin
+
+sylius_invoicing_plugin_admin:
+    resource: "@SyliusInvoicingPlugin/Resources/config/app/routing/admin_invoicing.yml"
+    prefix: /admin
+
+sylius_refund:
+    resource: "@SyliusRefundPlugin/Resources/config/routing.yml"
