@@ -6,10 +6,21 @@ imports:
 
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusPayPalPlugin/Resources/config/config.yaml" }
-    - { resource: "@SyliusPlusPlugin/Resources/config/config.yaml" }
+    - { resource: "@SyliusMultiSourceInventoryPlugin/config/config.yaml" }
+    - { resource: "@SyliusCustomerServicePlugin/config/config.yaml" }
+    - { resource: "@SyliusInvoicingPlugin/Resources/config/config.yml" }
+    - { resource: '@SyliusRefundPlugin/Resources/config/app/config.yml' }
+
 
 parameters:
     sylius_core.public_dir: '%kernel.project_dir%/public'
+    sylius_multi_source_inventory_api_resources_paths:
+        - '%kernel.project_dir%/vendor/sylius/plus-source/src/MultiSourceInventoryPlugin/config/api_resources/'
+        - '%kernel.project_dir%/vendor/sylius/plus-source/src/MultiSourceInventoryPlugin/src/Integration/CustomerService/Resources/config/api_resources/'
+    sylius_multi_source_inventory_serialization_paths:
+        - '%kernel.project_dir%/vendor/sylius/plus-source/src/MultiSourceInventoryPlugin/src/Integration/CustomerService/Resources/config/serialization/'
+    sylius_multi_source_inventory_validation_paths:
+        - '%kernel.project_dir%/vendor/sylius/plus-source/src/MultiSourceInventoryPlugin/src/Integration/CustomerService/Resources/config/validation/'
 
 when@dev:
     sylius_api:

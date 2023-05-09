@@ -27,7 +27,7 @@
         "php": "^8.0",
         "sylius/paypal-plugin": "^1.5",
         "sylius/sylius": "^1.12",
-        "sylius/plus": "dev-SYL-2252",
+        "sylius/plus-source": "dev-SYL-2252",
         "symfony/dotenv": "^5.4 || ^6.0",
         "symfony/runtime": "^5.4 || ^6.0",
         "symfony/flex": "^2.1"
@@ -65,7 +65,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:TheMilek/Plus.git"
+            "url": "git@github.com:TheMilek/PlusSource.git"
         }
     ],
     "conflict": {

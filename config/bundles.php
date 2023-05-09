@@ -63,5 +63,6 @@ return [
     Sylius\InvoicingPlugin\SyliusInvoicingPlugin::class => ['all' => true],
     Knp\Bundle\SnappyBundle\KnpSnappyBundle::class => ['all' => true],
     Sylius\RefundPlugin\SyliusRefundPlugin::class => ['all' => true],
-    Sylius\Plus\SyliusPlusPlugin::class => ['all' => true],
+    Sylius\MultiSourceInventoryPlugin\SyliusMultiSourceInventoryPlugin::class => ['all' => true],
+    Sylius\CustomerServicePlugin\SyliusCustomerServicePlugin::class => ['all' => true],
 ];

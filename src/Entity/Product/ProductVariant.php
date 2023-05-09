@@ -8,8 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Core\Model\ProductVariant as BaseProductVariant;
 use Sylius\Component\Core\Model\ProductVariantInterface;
 use Sylius\Component\Product\Model\ProductVariantTranslationInterface;
-use Sylius\Plus\Inventory\Domain\Model\InventorySourceStocksAwareTrait;
-use Sylius\Plus\Inventory\Domain\Model\ProductVariantInterface as InventoryProductVariantInterface;
+use Sylius\MultiSourceInventoryPlugin\Domain\Model\InventorySourceStocksAwareTrait;
+use Sylius\MultiSourceInventoryPlugin\Domain\Model\ProductVariantInterface as InventoryProductVariantInterface;
 
 /**
  * @ORM\Entity()
