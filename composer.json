@@ -28,7 +28,8 @@
         "sylius/sylius": "~1.14.0",
         "symfony/dotenv": "^5.4 || ^6.4",
         "symfony/flex": "^2.4",
-        "symfony/runtime": "^5.4 || ^6.4"
+        "symfony/runtime": "^5.4 || ^6.4",
+        "sylius/plus": "^1.0"
     },
     "require-dev": {
         "behat/behat": "^3.7",
@@ -82,6 +83,12 @@
             "symfony/runtime": true
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Sylius/Plus.git"
+        }
+    ],
     "extra": {
         "branch-alias": {
             "dev-main": "1.14-dev"
@@ -145,5 +152,6 @@
         "symfony/polyfill-php73": "*",
         "symfony/polyfill-php74": "*",
         "symfony/polyfill-php80": "*"
-    }
+    },
+    "minimum-stability": "dev"
 }
