@@ -29,7 +29,10 @@
         "sylius/sylius": "~1.13.2",
         "symfony/dotenv": "^5.4 || ^6.4",
         "symfony/flex": "^2.4",
-        "symfony/runtime": "^5.4 || ^6.4"
+        "symfony/runtime": "^5.4 || ^6.4",
+        "sylius/mollie-plugin": "1.0.x-dev",
+        "symfony/mailer": "5.4.21"
+
     },
     "require-dev": {
         "behat/behat": "^3.7",
@@ -146,5 +149,11 @@
         "symfony/polyfill-php73": "*",
         "symfony/polyfill-php74": "*",
         "symfony/polyfill-php80": "*"
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:Sylius/MolliePlugin.git"
+        }
+    ]
 }
