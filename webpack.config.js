@@ -5,10 +5,10 @@ const SyliusAdmin = require('@sylius-ui/admin');
 const SyliusShop = require('@sylius-ui/shop');
 
 // Admin config
-const adminConfig = SyliusAdmin.getWebpackConfig(path.resolve(__dirname));
+const adminConfig = SyliusAdmin.getBaseWebpackConfig(path.resolve(__dirname));
 
 // Shop config
-const shopConfig = SyliusShop.getWebpackConfig(path.resolve(__dirname));
+const shopConfig = SyliusShop.getBaseWebpackConfig(path.resolve(__dirname));
 
 // App shop config
 Encore
@@ -24,6 +24,9 @@ Encore
     .enableVersioning(Encore.isProduction())
     .enableSassLoader()
     .enableStimulusBridge(path.resolve(__dirname, './assets/shop/controllers.json'))
+    // remove the following line if you don't want to add automatically controllers provided by plugins
+    // You then have to copy them to assets/shop/controllers.json
+    .enableStimulusBridge(path.resolve(__dirname, './assets/controllers.json'))
 ;
 
 const appShopConfig = Encore.getWebpackConfig();
@@ -47,6 +50,9 @@ Encore
     .enableVersioning(Encore.isProduction())
     .enableSassLoader()
     .enableStimulusBridge(path.resolve(__dirname, './assets/admin/controllers.json'))
+    // remove the following line if you don't want to add automatically controllers provided by plugins
+    // You then have to copy them to assets/admin/controllers.json
+    .enableStimulusBridge(path.resolve(__dirname, './assets/controllers.json'))
 ;
 
 const appAdminConfig = Encore.getWebpackConfig();
