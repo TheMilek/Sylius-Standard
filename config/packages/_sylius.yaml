@@ -279,3 +279,14 @@ sylius_twig_hooks:
         'sylius_shop.base#javascripts':
             app_javascripts:
                 template: 'shop/javascripts.html.twig'
+
+        'sylius_admin.order.show.content.header.title_block.actions':
+            ship:
+                component: 'sylius_admin:shipment:ship_form'
+                props:
+                    resource: '@=_context.shipment'
+                    path: 'sylius_admin_order_shipment_ship'
+                    pathParameters:
+                        id: '@=_context.shipment.getId()'
+                        orderId: '@=_context.resource.getId()'
+                    template: '@SyliusAdmin/shipment/component/ship.html.twig'
