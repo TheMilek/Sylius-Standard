@@ -1,0 +1,61 @@
+sylius_fixtures:
+    suites:
+        default: # this key is always called whenever the sylius:fixtures:load command is called, below we are extending it with new fixtures
+            fixtures:
+                currency:
+                    options:
+                        currencies: ['CZK', 'HUF']
+                channel:
+                    options:
+                        custom:
+                            cz_web_store: # creating new channel
+                                name: "CZ Web Store"
+                                code: "CZ_WEB"
+                                locales:
+                                    - "%locale%"
+                                currencies:
+                                    - "CZK"
+                                enabled: true
+                                hostname: "localhost"
+                            hun_web_store:
+                                name: "Hun Web Store"
+                                code: "HUN_WEB"
+                                locales:
+                                    - "%locale%"
+                                currencies:
+                                    - "HUF"
+                                enabled: true
+                                hostname: "localhost"
+                shipping_method:
+                    options:
+                        custom:
+                            ups_eu: # creating a new shipping_method and adding channel to it
+                                code: "ups_eu"
+                                name: "UPS_eu"
+                                enabled: true
+                                channels:
+                                    - "CZ_WEB"
+                                    - "HUN_WEB"
+                            geis:
+                                code: "geis"
+                                name: "Geis"
+                                enabled: true
+                                channels:
+                                    - "CZ_WEB"
+                                deliveryConditions: "3-5 days"
+                payment_method:
+                    options:
+                        custom:
+                            cash_on_delivery_cz:
+                                code: "cash_on_delivery_eu"
+                                name: "Cash on delivery_eu"
+                                channels:
+                                    - "CZ_WEB"
+                            bank_transfer:
+                                code: "bank_transfer_eu"
+                                name: "Bank transfer_eu"
+                                channels:
+                                    - "CZ_WEB"
+                                    - "HUN_WEB"
+                                enabled: true
+                            

@@ -12,7 +12,7 @@ final class AdminMenuListener
 
         $newSubmenu = $menu
             ->addChild('new')
-            ->setLabel('Custom Admin Submenu')
+            ->setLabel('Custom Admin Menu')
         ;
 
         $newSubmenu

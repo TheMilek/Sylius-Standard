@@ -1,3 +1,7 @@
+parameters:
+    sylius.form.type.product_translation.validation_groups: [app_product]
+    sylius.form.type.product.validation_groups: [app_product]
+
 services:
     # Default configuration for services in *this* file
     _defaults:
@@ -21,7 +25,7 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/*'
-        exclude: '../src/{Entity,Kernel.php}'
+        exclude: '../src/{Entity,Fixture,Kernel.php}'
 
     # Controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
@@ -43,11 +47,11 @@ services:
         class: App\Menu\AdminCustomerShowMenuListener
         tags:
             - { name: kernel.event_listener, event: sylius.menu.admin.customer.show, method: addAdminCustomerShowMenuItems }
-
-    app.listener.admin.order.show.menu_builder:
-        class: App\Menu\AdminOrderShowMenuListener
-        tags:
-            - { name: kernel.event_listener, event: sylius.menu.admin.order.show, method: addAdminOrderShowMenuItems }
+#
+#    app.listener.admin.order.show.menu_builder:
+#        class: App\Menu\AdminOrderShowMenuListener
+#        tags:
+#            - { name: kernel.event_listener, event: sylius.menu.admin.order.show, method: addAdminOrderShowMenuItems }
 
     app.listener.admin.product.form.menu_builder:
         class: App\Menu\AdminProductFormMenuListener
@@ -58,3 +62,26 @@ services:
         class: App\Menu\AdminProductVariantFormMenuListener
         tags:
             - { name: kernel.event_listener, event: sylius.menu.admin.product_variant.form, method: addItems }
+                
+    sylius.fixture.example_factory.shipping_method:
+        class: App\Fixture\Factory\ShippingMethodExampleFactory
+        arguments:
+            - "@sylius.factory.shipping_method"
+            - "@sylius.repository.zone"
+            - "@sylius.repository.shipping_category"
+            - "@sylius.repository.locale"
+            - "@sylius.repository.channel"
+            - "@sylius.repository.tax_category"
+        public: true
+
+    sylius.fixture.shipping_method:
+        class: App\Fixture\ShippingMethodFixture
+        arguments:
+            - "@sylius.manager.shipping_method"
+            - "@sylius.fixture.example_factory.shipping_method"
+        tags:
+            - { name: sylius_fixtures.fixture }
+
+    App\Grid\AdminProductsGridListener:
+        tags:
+            - { name: kernel.event_listener, event: sylius.grid.admin_product, method: editFields }

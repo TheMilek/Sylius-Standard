@@ -281,12 +281,57 @@ sylius_twig_hooks:
                 template: 'shop/javascripts.html.twig'
 
         'sylius_admin.order.show.content.header.title_block.actions':
-            ship:
-                component: 'sylius_admin:shipment:ship_form'
-                props:
-                    resource: '@=_context.shipment'
-                    path: 'sylius_admin_order_shipment_ship'
-                    pathParameters:
-                        id: '@=_context.shipment.getId()'
-                        orderId: '@=_context.resource.getId()'
-                    template: '@SyliusAdmin/shipment/component/ship.html.twig'
+            complete_payment:
+                template: 'admin/order/show/content/header/title_block/actions/complete_payment.html.twig'
+
+        'sylius_admin.product.create.content.form.side_navigation':
+            manufacturer:
+                template: 'admin/product/form/side_navigation/manufacturer.html.twig'
+
+        'sylius_admin.product.create.content.form.sections':
+            manufacturer:
+                template: 'admin/product/form/sections/manufacturer.html.twig'
+
+        'sylius_admin.product.update.content.form.side_navigation':
+            manufacturer:
+                template: 'admin/product/form/side_navigation/manufacturer.html.twig'
+        
+        'sylius_admin.product.update.content.form.sections':
+            manufacturer:
+                template: 'admin/product/form/sections/manufacturer.html.twig'
+                
+        'sylius_admin.product_variant.create.content.form.sections':
+            custom_media:
+                template: 'admin/product_variant/form/sections/custom_media.html.twig'
+
+        'sylius_admin.product_variant.create.content.form.side_navigation':
+            custom_media:
+                template: 'admin/product_variant/form/side_navigation/custom_media.html.twig'
+        
+        'sylius_admin.product_variant.update.content.form.sections':
+            custom_media:
+                template: 'admin/product_variant/form/sections/custom_media.html.twig'
+                
+        'sylius_admin.product_variant.update.content.form.side_navigation':
+            custom_media:
+                template: 'admin/product_variant/form/side_navigation/custom_media.html.twig'
+                
+        'sylius_admin.customer.show.content.header.title_block.actions':
+            create:
+                template: 'admin/customer/show/content/header/title_block/actions/create.html.twig'
+
+sylius_fixtures:
+    suites:
+        default:
+            fixtures:
+                # ...
+                shipping_method: # our new configuration with the new field
+                    options:
+                        custom:
+                            geis:
+                                code: "geis"
+                                name: "Geis"
+                                enabled: true
+                                channels:
+                                    - "CZ_WEB"
+                                deliveryConditions: "3-5 days"
