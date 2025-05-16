@@ -62,4 +62,5 @@ return [
     Symfony\UX\Icons\UXIconsBundle::class => ['all' => true],
     FOS\RestBundle\FOSRestBundle::class => ['all' => true],
     Sylius\PayPalPlugin\SyliusPayPalPlugin::class => ['all' => true],
+    Symfony\Bundle\MakerBundle\MakerBundle::class => ['dev' => true],
 ];

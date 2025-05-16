@@ -58,3 +58,19 @@ services:
         class: App\Menu\AdminProductVariantFormMenuListener
         tags:
             - { name: kernel.event_listener, event: sylius.menu.admin.product_variant.form, method: addItems }
+    
+    app.form.type.supplier_translation:
+        class: App\Form\Type\SupplierTranslationType
+        arguments:
+            - '%app.model.supplier_translation.class%'
+            - [sylius]
+        tags:
+            - { name: 'form.type' }
+
+    app.form.type.supplier:
+        class: App\Form\Type\SupplierType
+        arguments:
+            - '%app.model.supplier.class%'
+            - [sylius]
+        tags:
+            - { name: 'form.type' }
