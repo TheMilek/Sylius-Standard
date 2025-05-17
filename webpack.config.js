@@ -38,7 +38,6 @@ Encore
 ;
 
 const appShopConfig = Encore.getWebpackConfig();
-console.log(appShopConfig);
 
 appShopConfig.externals = Object.assign({}, appShopConfig.externals, { window: 'window', document: 'document' });
 appShopConfig.name = 'app.shop';
