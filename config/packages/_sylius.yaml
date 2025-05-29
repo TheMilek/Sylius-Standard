@@ -279,3 +279,8 @@ sylius_twig_hooks:
         'sylius_shop.base#javascripts':
             app_javascripts:
                 template: 'shop/javascripts.html.twig'
+        
+        'sylius_admin.admin_user.update.content.form.sections.personal_information':
+            xd:
+                template: '/admin/admin_user/form/sections/personal_information/avatar.html.twig'
+                priority: 0

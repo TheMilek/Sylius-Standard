@@ -1,0 +1,11 @@
+{# In your template #}
+<div>
+    {# Original delete component #}
+    {# Your custom button #}
+    <button {{ stimulus_controller('delete-trigger') }}
+        {{ stimulus_action('delete-trigger', 'triggerDelete') }}
+        data-delete-trigger-taxon-id-value="{{ taxon.id }}"
+        data-delete-trigger-csrf-token-value="{{ csrf_token(taxon.id) }}">
+        Delete from here
+    </button>
+</div>

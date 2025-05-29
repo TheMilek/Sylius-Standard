@@ -20,13 +20,14 @@
             "name": "Sylius project"
         },
         {
-            "name": "Community contributions"
+            "name": "Community contcributions"
         }
     ],
     "require": {
         "php": "^8.2",
+        "sylius/cms-plugin": "^1.0",
         "sylius/paypal-plugin": "^2.0",
-        "sylius/sylius": "~2.0.0",
+        "sylius/sylius": "dev-feature/stimulus-ready as 2.0.7",
         "symfony/dotenv": "^6.4 || ^7.1",
         "symfony/flex": "^2.4",
         "symfony/runtime": "^6.4 || ^7.1"
@@ -60,7 +61,8 @@
         "symfony/debug-bundle": "^6.4 || ^7.1",
         "symfony/http-client": "^6.4 || ^7.1",
         "symfony/intl": "^6.4 || ^7.1",
-        "symfony/web-profiler-bundle": "^6.4 || ^7.1"
+        "symfony/web-profiler-bundle": "^6.4 || ^7.1",
+        "symplify/config-transformer": "^12.4"
     },
     "config": {
         "preferred-install": {
@@ -137,5 +139,11 @@
         "symfony/polyfill-php81": "*",
         "symfony/polyfill-php82": "*",
         "symfony/polyfill-php83": "*"
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Jibbarth/Sylius.git"
+        }
+    ]
 }

@@ -28,3 +28,7 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+parameters:
+    sylius.shipping.shipping_method_rule.validation_groups:
+        order_total_greater_than_or_equal: [app_shipping_method_rule_order_grater_than_or_equal]

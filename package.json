@@ -11,7 +11,9 @@
     "@sylius/admin-bundle": "file:vendor/sylius/sylius/src/Sylius/Bundle/AdminBundle/Resources/assets",
     "@sylius/shop-bundle": "file:vendor/sylius/sylius/src/Sylius/Bundle/ShopBundle/Resources/assets",
     "@symfony/ux-autocomplete": "file:vendor/symfony/ux-autocomplete/assets",
-    "@symfony/ux-live-component": "file:vendor/symfony/ux-live-component/assets"
+    "@symfony/ux-live-component": "file:vendor/symfony/ux-live-component/assets",
+    "swiper": "^11.2.6",
+    "trix": "^2.0.0"
   },
   "devDependencies": {
     "@hotwired/stimulus": "^3.0.0",
