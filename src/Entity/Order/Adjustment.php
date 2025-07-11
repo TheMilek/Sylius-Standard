@@ -11,4 +11,22 @@ use Sylius\Component\Core\Model\Adjustment as BaseAdjustment;
 #[ORM\Table(name: 'sylius_adjustment')]
 class Adjustment extends BaseAdjustment
 {
+    public function __construct()
+    {
+        $this->id = uuid_create();
+    }
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'id' => $this->id ?? uuid_create(),
+            'amount' => $this->amount,
+            'type' => $this->type,
+            'label' => $this->label,
+        ];
+    }
 }
