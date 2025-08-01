@@ -15,4 +15,10 @@ class Shipment extends BaseShipment
     {
         $this->units->clear();
     }
+
+//    public function replaceUnits(\Doctrine\Common\Collections\ArrayCollection $units): void
+//    {
+//        $this->units = $units;
+//        $this->order->recalculateItemsTotal();
+//    }
 }

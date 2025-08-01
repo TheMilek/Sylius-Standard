@@ -13,8 +13,13 @@ class Adjustment extends BaseAdjustment
 {
     public function __construct()
     {
-        $this->id = uuid_create();
     }
+
+    public function __toString(): string
+    {
+        return implode('', $this->toArray());
+    }
+
     public function setId($id): void
     {
         $this->id = $id;
@@ -27,6 +32,10 @@ class Adjustment extends BaseAdjustment
             'amount' => $this->amount,
             'type' => $this->type,
             'label' => $this->label,
+            'order' => $this->order?->getId(),
+            'orderItem' => $this->orderItem?->getId(),
+            'orderItemUnit' => $this->orderItemUnit?->getId(),
+            'shipment' => $this->shipment?->getId(),
         ];
     }
 }

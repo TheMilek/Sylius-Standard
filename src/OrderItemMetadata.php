@@ -19,7 +19,7 @@ final class OrderItemMetadata
             $meta->setAssociationOverride(
                 'adjustments',
                 [
-                    'cascade' => [],
+                    'cascade' => ['persist'],
                 ]
             );
             $meta->setIdGeneratorType(ClassMetadata::GENERATOR_TYPE_NONE);
@@ -36,6 +36,16 @@ final class OrderItemMetadata
 
 
         if ($meta->getName() === Shipment::class) {
+            $meta->associationMappings['units']['orphanRemoval'] = false;
+            $meta->setAssociationOverride(
+                'units',
+                [
+                    'cascade' => [],
+                ],
+            );
+        }
+
+        if ($meta->getName() === OrderItem::class) {
             $meta->associationMappings['units']['orphanRemoval'] = false;
             $meta->setAssociationOverride(
                 'units',

@@ -32,11 +32,20 @@ services:
     App\OrderItemFlushSubscriber:
         tags:
             - { name: doctrine.event_listener, event: preFlush }
+            - { name: doctrine.event_listener, event: onFlush }
+            - { name: doctrine.event_listener, event: postFlush }
     
     App\OrderItemLoader:
+        arguments:
+            $shipmentRepository: '@sylius.repository.shipment'
         tags:
             - { name: doctrine.orm.entity_listener, event: postLoad, entity: App\Entity\Order\OrderItem, lazy: true }
     
+    App\ShipmentLoader:
+        tags:
+            - { name: doctrine.orm.entity_listener, event: postLoad, entity: App\Entity\Shipping\Shipment, lazy: true }
+
+
     App\OrderItemMetadata:
         tags:
             - { name: doctrine.event_listener, event: loadClassMetadata}

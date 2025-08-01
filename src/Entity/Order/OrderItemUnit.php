@@ -26,7 +26,8 @@ class OrderItemUnit extends BaseOrderItemUnit
     {
         return [
             'id' => $this->id,
-            'adjustments' => $this->adjustments->map(fn($adjustment) => $adjustment->toArray())->toArray(),
+            'adjustments' => array_map(fn($adjustment) => $adjustment->toArray(), $this->adjustments->toArray()),
+            'shipmentId' => $this->shipment ? $this->shipment->getId() : null,
         ];
     }
 

@@ -31,9 +31,17 @@ class OrderItem extends BaseOrderItem
         $this->units->clear();
     }
 
+    public function setQuantity(int $quantity): void
+    {
+        $this->quantity = $quantity;
+        $this->recalculateUnitsTotal();
+        $this->order->recalculateItemsTotal();
+    }
+
     public function replaceUnits(\Doctrine\Common\Collections\ArrayCollection $units): void
     {
         $this->units = $units;
         $this->recalculateUnitsTotal();
+        $this->order->recalculateItemsTotal();
     }
 }
