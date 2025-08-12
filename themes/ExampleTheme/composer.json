@@ -1,0 +1,14 @@
+{
+    "name": "acme/example-theme",
+    "authors": [
+        {
+            "name": "James test",
+            "email": "test@example.com"
+        }
+    ],
+    "extra": {
+        "sylius-theme": {
+            "title": "Example Theme"
+        }
+    }
+}
