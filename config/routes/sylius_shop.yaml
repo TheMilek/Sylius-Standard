@@ -1,20 +1,33 @@
+# Default locale (en_US) - no prefix
+# This is the main shop route - route names remain as "sylius_shop_*"
 sylius_shop:
     resource: "@SyliusShopBundle/Resources/config/routing.yml"
-    prefix: /{_locale}
-    requirements:
-        _locale: ^[A-Za-z]{2,4}(_([A-Za-z]{4}|[0-9]{3}))?(_([A-Za-z]{2}|[0-9]{3}))?$
+    defaults:
+        _locale: en_US
+
+# Dutch locale - with /nl prefix
+# Route names will be "sylius_shop_nl_*" (prefixed to avoid conflicts)
+sylius_shop_nl:
+    resource: "@SyliusShopBundle/Resources/config/routing.yml"
+    prefix: /nl_NL
+    name_prefix: nl_
+    defaults:
+        _locale: nl_NL
+
+# Polish locale - with /pl prefix
+# Route names will be "sylius_shop_pl_*" (prefixed to avoid conflicts)
+sylius_shop_pl:
+    resource: "@SyliusShopBundle/Resources/config/routing.yml"
+    prefix: /pl_PL
+    name_prefix: pl_
+    defaults:
+        _locale: pl_PL
 
 sylius_shop_payum:
     resource: "@SyliusPayumBundle/Resources/config/routing/integrations/sylius_shop.yaml"
 
 sylius_payment_notify:
     resource: "@SyliusPaymentBundle/Resources/config/routing/integrations/sylius.yaml"
-
-sylius_shop_default_locale:
-    path: /
-    methods: [GET]
-    defaults:
-        _controller: sylius_shop.controller.locale_switch::switchAction
 
 # see https://web.dev/change-password-url/
 sylius_shop_request_password_reset_token_redirect:

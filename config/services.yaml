@@ -34,9 +34,28 @@ services:
         exclude:
             - '../src/Entity/'
             - '../src/Kernel.php'
+            - '../src/Locale/'
 
     # Controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    # Custom locale context for URL-based locale detection (no prefix = default locale)
+    App\Locale\RequestLocaleContext:
+        tags:
+            - { name: 'sylius.context.locale', priority: 128 }
+
+    # Event subscriber for setting locale from URL path
+    App\EventSubscriber\LocaleSubscriber:
+        tags:
+            - { name: 'kernel.event_subscriber' }
+
+    # Override Sylius locale switcher to handle custom URL prefixes
+    App\Locale\UrlBasedLocaleSwitcher: ~
+
+    sylius_shop.locale_switcher:
+        class: App\Locale\UrlBasedLocaleSwitcher
+        arguments:
+            - '@router'
