@@ -40,3 +40,7 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    # Aliases for Mollie plugin services
+    Sylius\MolliePlugin\Client\MollieApiClient: '@sylius_mollie.client.mollie_api'
+    Sylius\MolliePlugin\Converter\IntToStringConverterInterface: '@sylius_mollie.converter.int_to_string'
